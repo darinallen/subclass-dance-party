@@ -3,7 +3,10 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  /*background-color:white;*/
+  /*background-image: url('https://www.walldevil.com/wallpapers/w04/029987-earth-outer-space-planets-solar-system.jpg');*/
+  background-image: url('https://s-media-cache-ak0.pinimg.com/originals/d9/07/06/d90706b8efb0d59c146a07e8dd31c241.jpg');
+  background-size:cover;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -21,7 +24,53 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
+  position:absolute;
+}
+.blinky{
   border:10px solid red;
   border-radius:10px;
+}
+.stretchy{
+  border:20px solid red;
+  border-radius:20px;
   position:absolute;
+}
+.crazy{
+  border:0px;
+  height:50px;
+  width: 50px;
+  background-color: red;
+  animation-name: morph;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+@keyframes morph{
+  0%{
+    transform:scale(.3);
+    background-color: red;
+    border-radius:100%;
+  }
+  50%{
+    background-color: blue;
+  }
+  100%{
+    transform:scale(1.5);
+    background-color: green;
+  }
+}
+.imageDancer{
+  position: absolute;
+  height: 414px;
+  width: 479px;
+  background-image: url('images/dancingInstructors.png');
+  animation-name: rotator;
+  animation: rotate 3s;
+}
+@keyframes rotator{
+  100% { transform:rotate(-360deg) }
 }

@@ -23,3 +23,12 @@ makeDancer.prototype.setPosition = function(top, left) {
   };
   this.$node.css(styleSettings);
 };
+
+makeDancer.prototype.makeNewPosition = function(){
+  var height = $('body').height() - 50;
+  var width = $('body').width() - 50;
+  var newHeight = Math.floor(Math.random() * height);
+  var newWidth = Math.floor(Math.random() * width);
+
+  return [newHeight, newWidth];
+}
