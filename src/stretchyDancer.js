@@ -8,4 +8,4 @@ makeStretchyDancer.prototype.constructor = makeStretchyDancer;
 makeStretchyDancer.prototype.step = function() {
   makeDancer.prototype.step.call(this);
   this.$node.toggleClass('stretchy');
-}
+};

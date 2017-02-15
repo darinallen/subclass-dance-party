@@ -1,13 +1,23 @@
-var makeImageDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.call(this, top, left, timeBetweenSteps);
+var ImageDancer = function(top, left, timeBetweenSteps) {
+  Dancer.call(this, top, left, timeBetweenSteps);
   this.$node.addClass('imageDancer');
-}
+};
 
-makeImageDancer.prototype = Object.create(makeDancer.prototype);
-makeImageDancer.prototype.constructor = makeImageDancer;
+ImageDancer.prototype = Object.create(Dancer.prototype);
+ImageDancer.prototype.constructor = ImageDancer;
 
-makeImageDancer.prototype.step = function() {
-  //var newPosition = this.makeNewPosition();
-  //var context = this;
-  //this.$node.animate({top : newCoordinates[0],left:newCoordinates[1]}, 800, function(){ context.step()} );
-}
+ImageDancer.prototype.step = function() {
+  var newPosition = this.makeNewPosition();
+  var context = this;
+  this.$node.animate({top : newPosition[0],left:newPosition[1]}, 1000,
+    function(){ if(!context.$node.hasClass('lineUp')){ context.step()} } );
+};
+
+ImageDancer.prototype.makeNewPosition = function(){
+  var height = $('body').height() - 500;
+  var width = $('body').width() - 500;
+  var newHeight = Math.floor(Math.random() * height);
+  var newWidth = Math.floor(Math.random() * width );
+
+  return [newHeight, newWidth];
+};

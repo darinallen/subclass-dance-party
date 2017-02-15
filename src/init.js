@@ -1,5 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
+  //console.log(dancers)
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -28,5 +29,25 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
+
+    $(dancer.$node).mouseover(function(){
+      $(".dancer").css("background-image", "url('https://dl.dropboxusercontent.com/u/6695849/dancingInstructorsHats.png')");
+    });
   });
+
+  $('.lineUpButton').on('click', function(event) {
+    //console.log(777)
+    // console.log(window.dancers)
+    for(var i =0; i < window.dancers.length; i++) {
+      var currDancer = window.dancers[i];
+      currDancer.$node.toggleClass('lineUp');
+      if(currDancer.$node.hasClass('lineUp')) {
+        currDancer.$node.animate({left: 10}, 1000);
+      } else {
+        currDancer.step();
+      }
+    }
+  });
+
 });

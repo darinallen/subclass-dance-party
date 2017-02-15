@@ -1,14 +1,15 @@
-var makeCrazyDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.call(this, top, left, timeBetweenSteps);
+var CrazyDancer = function(top, left, timeBetweenSteps) {
+  Dancer.call(this, top, left, timeBetweenSteps);
   this.$node.addClass('crazy');
-}
+};
 
-makeCrazyDancer.prototype = Object.create(makeDancer.prototype);
+CrazyDancer.prototype = Object.create(Dancer.prototype);
 
-makeCrazyDancer.prototype.constructor = makeCrazyDancer;
+CrazyDancer.prototype.constructor = CrazyDancer;
 
-makeCrazyDancer.prototype.step = function() {
+CrazyDancer.prototype.step = function() {
   var newCoordinates = this.makeNewPosition();
   var context = this;
-  this.$node.animate({top : newCoordinates[0],left:newCoordinates[1]}, 800, function(){ context.step()} );
-}
+  this.$node.animate({top: newCoordinates[0], left: newCoordinates[1]}, 800,
+    function(){if(!context.$node.hasClass('lineUp')){ context.step();} });
+};
