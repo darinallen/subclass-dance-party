@@ -36,4 +36,4 @@ Dancer.prototype.makeNewPosition = function(){
 
 Dancer.prototype.lineUp = function() {
   this.$node.toggleClass('lineUp');
-}
+};

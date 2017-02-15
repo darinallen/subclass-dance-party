@@ -10,7 +10,7 @@ ImageDancer.prototype.step = function() {
   var newPosition = this.makeNewPosition();
   var context = this;
   this.$node.animate({top : newPosition[0],left:newPosition[1]}, 1000,
-    function(){ if(!context.$node.hasClass('lineUp')){ context.step()} } );
+    function(){ if(!context.$node.hasClass('lineUp')){ context.step();} } );
 };
 
 ImageDancer.prototype.makeNewPosition = function(){

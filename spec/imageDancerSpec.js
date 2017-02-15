@@ -11,4 +11,8 @@ describe('imageDancer', function() {
     expect(imageDancer.$node).to.be.an.instanceof(jQuery);
   });
 
+  it('should have the \'imageDancer\' class', function() {
+    expect(imageDancer.$node.hasClass('imageDancer')).to.be.true;
+  });
+
 });

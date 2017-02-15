@@ -11,6 +11,7 @@ describe('crazyDancer', function() {
     expect(crazyDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-    });
+  it('should have the \'crazy\' class', function() {
+    expect(crazyDancer.$node.hasClass('crazy')).to.be.true;
   });
 });
